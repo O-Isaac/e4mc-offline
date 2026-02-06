@@ -1,0 +1,13 @@
+{
+  "itemGroup.e4mcoffline": "Example Mod Tab",
+  "block.e4mcoffline.example_block": "Example Block",
+  "item.e4mcoffline.example_item": "Example Item",
+
+  "e4mcoffline.configuration.title": "e4mc-offline Configs",
+  "e4mcoffline.configuration.section.e4mcoffline.common.toml": "e4mc-offline Configs",
+  "e4mcoffline.configuration.section.e4mcoffline.common.toml.title": "e4mc-offline Configs",
+  "e4mcoffline.configuration.items": "Item List",
+  "e4mcoffline.configuration.logDirtBlock": "Log Dirt Block",
+  "e4mcoffline.configuration.magicNumberIntroduction": "Magic Number Text",
+  "e4mcoffline.configuration.magicNumber": "Magic Number"
+}
