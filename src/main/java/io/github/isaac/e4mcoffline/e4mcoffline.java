@@ -1,10 +1,11 @@
 package io.github.isaac.e4mcoffline;
 
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.Mod;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
-@Mod(e4mcoffline.MODID)
+@Mod(value = e4mcoffline.MODID, dist = Dist.CLIENT)
 public class e4mcoffline {
     public static final String MODID = "e4mcoffline";
     public static final Logger LOGGER = LogUtils.getLogger();
