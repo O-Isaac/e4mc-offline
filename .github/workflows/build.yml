@@ -5,6 +5,8 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,3 +30,30 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build
+
+      - name: Create GitHub Release
+        if: github.ref == 'refs/heads/master'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v1.0.${{ github.run_number }}"
+          name: "🚀 Release v1.0.${{ github.run_number }}"
+          draft: false
+          prerelease: false
+          files: build/libs/*.jar
+          generate_release_notes: true # This automatically lists all new commits/PRs
+          body: |
+            # 💎 Deployment Summary
+            
+            ![Build Status](https://img.shields.io/badge/Build-Success-success?style=for-the-badge&logo=github-actions)
+            ![Java Version](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)
+            ![Platform](https://img.shields.io/badge/Platform-Ubuntu-blue?style=for-the-badge&logo=ubuntu)
+            
+            ---
+            
+            ### 📝 Change Logs
+            > The detailed list of commits and contributors is automatically generated below under **"What's Changed"**.
+            
+            ### 🛠 Artifact Details
+            - **Branch:** `${{ github.ref_name }}`
+            - **Commit SHA:** `${{ github.sha }}`
+            - **Build ID:** `${{ github.run_id }}`
